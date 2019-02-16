@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import SearchResult from './components/QuoteSearchResults';
-import Quotes from './constructor/Quotes';
+//import SearchResult from './components/QuoteSearchResults';
+//import Quotes from './constructor/Quotes';
+import './styles.less';
 
 class App extends React.Component {
   constructor(props){
@@ -42,22 +43,23 @@ class App extends React.Component {
       });
   }
   
-  componentDidMount(){
-  const config = {
-    headers: {'X-RapidAPI-Key': '9582c9a04bmsh38417e4edecff7dp13f60djsn521655bbeed3'}
-  };
-  axios.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/pricing/uk2/v1.0/03f71f7a-9152-49ad-8866-037a4cc800ad", config)
-    .then((result) => {
-      let itineraries = result.data.Itineraries;
-      let legs = result.data.Legs;
-      this.setState({
-        quotes: Quotes.legs(itineraries, legs)
-      })
-    });
-  }
+  // componentDidMount(){
+  // const config = {
+  //   headers: {'X-RapidAPI-Key': '9582c9a04bmsh38417e4edecff7dp13f60djsn521655bbeed3'}
+  // };
+  // axios.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/pricing/uk2/v1.0/03f71f7a-9152-49ad-8866-037a4cc800ad", config)
+  //   .then((result) => {
+  //     let itineraries = result.data.Itineraries;
+  //     let legs = result.data.Legs;
+  //     this.setState({
+  //       quotes: Quotes.legs(itineraries, legs)
+  //     })
+  //   });
+  // }
   render() {
     return (
-      <div>
+      <div className = 'with-styles'>
+        <p>Hello this is my Main Page</p>
         {/* <input type = "text" name = "country" onChange = {this.handleSearch} placeholder = "US"></input>
         <input type = "text" name = "currency" onChange = {this.handleSearch} placeholder = "USD"></input>
         <input type = "text" name = "language" onChange = {this.handleSearch} placeholder = "en-US"></input>
@@ -65,7 +67,7 @@ class App extends React.Component {
         <input type = "text" name = "arrival" onChange = {this.handleSearch} placeholder = "JFK-sky"></input>
         <input type = "text" name = "departureDate" onChange = {this.handleSearch} placeholder = "2019-02-20"></input>
         <button onClick = {this.handleSetApi}>Search</button> */}
-        {console.log(this.state.quotes)}
+        {/* {console.log(this.state.quotes)} */}
       
       </div>
     );
